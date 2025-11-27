@@ -1,0 +1,40 @@
+.storybook-button {
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+  color: #FFE6A7;
+  width: 200px;
+  text-align: center;
+}
+
+.storybook-button-primary {
+  background: #6F1D1B;
+  box-shadow: 0 2px 8px rgba(111, 29, 27, 0.4);
+}
+
+.storybook-button-primary:hover {
+  background: #8B2A28;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(111, 29, 27, 0.6);
+}
+
+.storybook-button-primary:active {
+  transform: translateY(0);
+}
+
+.storybook-button-secondary {
+  background: #99582A;
+  box-shadow: 0 2px 8px rgba(153, 88, 42, 0.4);
+}
+
+.storybook-button-secondary:hover {
+  background: #B3703A;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(153, 88, 42, 0.6);
+}
+

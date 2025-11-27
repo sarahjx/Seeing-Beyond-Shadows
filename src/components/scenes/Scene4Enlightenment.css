@@ -1,0 +1,237 @@
+.scene-4 {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.scene-4-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, #87CEEB 0%, #B0E0E6 50%, #98D8C8 100%);
+  z-index: 0;
+  transition: filter 0.1s ease;
+}
+
+.nature-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, #87CEEB 0%, #B0E0E6 50%, #98D8C8 100%);
+}
+
+.ground {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 25%;
+  background: #228B22;
+  z-index: 1;
+}
+
+.sun {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 120px;
+  background: #FFD700;
+  border-radius: 50%;
+  box-shadow: 0 0 40px rgba(255, 215, 0, 0.6);
+  z-index: 5;
+}
+
+.sun::before,
+.sun::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background: #FFD700;
+  border-radius: 50%;
+}
+
+.sun::before {
+  clip-path: polygon(0% 0%, 100% 0%, 50% 20%, 50% 80%, 100% 100%, 0% 100%);
+}
+
+.sun::after {
+  clip-path: polygon(20% 0%, 80% 0%, 100% 50%, 80% 100%, 20% 100%, 0% 50%);
+}
+
+.sun-rays {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 200px;
+  z-index: 4;
+}
+
+.sun-ray {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4px;
+  height: 60px;
+  background: #FFD700;
+  transform-origin: center bottom;
+}
+
+.sun-ray:nth-child(1) { transform: translate(-50%, -100%) rotate(0deg); }
+.sun-ray:nth-child(2) { transform: translate(-50%, -100%) rotate(45deg); }
+.sun-ray:nth-child(3) { transform: translate(-50%, -100%) rotate(90deg); }
+.sun-ray:nth-child(4) { transform: translate(-50%, -100%) rotate(135deg); }
+.sun-ray:nth-child(5) { transform: translate(-50%, -100%) rotate(180deg); }
+.sun-ray:nth-child(6) { transform: translate(-50%, -100%) rotate(225deg); }
+.sun-ray:nth-child(7) { transform: translate(-50%, -100%) rotate(270deg); }
+.sun-ray:nth-child(8) { transform: translate(-50%, -100%) rotate(315deg); }
+
+.trees {
+  position: absolute;
+  bottom: 25%;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  z-index: 3;
+}
+
+.tree {
+  width: 80px;
+  height: 120px;
+  position: relative;
+}
+
+.tree-trunk {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 60px;
+  background: #8B4513;
+}
+
+.tree-canopy {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 80px;
+  background: #228B22;
+  border-radius: 50%;
+}
+
+.scene-content {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+}
+
+.enlightenment-visual {
+  position: absolute;
+  bottom: 25%;
+  left: 10%;
+  width: 100px;
+  height: 150px;
+  z-index: 4;
+}
+
+.freed-prisoner {
+  width: 100%;
+  height: 100%;
+  background: #432818;
+  clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 100%, 0% 100%, 0% 30%);
+  position: relative;
+  animation: emerge 2s ease-out;
+}
+
+@keyframes emerge {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.light-rays {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.light-ray {
+  position: absolute;
+  cursor: pointer;
+  pointer-events: all;
+  transition: all 0.3s;
+}
+
+.ray-1 {
+  top: 10%;
+  left: 20%;
+  width: 150px;
+  height: 300px;
+}
+
+.ray-2 {
+  top: 5%;
+  left: 50%;
+  width: 180px;
+  height: 350px;
+}
+
+.ray-3 {
+  top: 8%;
+  right: 20%;
+  width: 140px;
+  height: 320px;
+}
+
+.finish-button-container {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  z-index: 100;
+  animation: fadeInUp 0.5s ease-out 1s both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .finish-button-container {
+    bottom: 20px;
+    right: 20px;
+  }
+}
+
