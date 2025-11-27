@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import Button from '../common/Button';
+import ChainSVG from '../../assets/svgs/chain-link.svg';
+import CaveWallSVG from '../../assets/svgs/cave-wall-texture.svg';
 import './Scene3Choice.css';
 
 const Scene3Choice = ({ onNext }) => {
@@ -16,7 +18,11 @@ const Scene3Choice = ({ onNext }) => {
   return (
     <div className="scene scene-3">
       <div className="scene-background scene-3-background">
-        {/* Placeholder for cave interior */}
+        <img 
+          src={CaveWallSVG} 
+          alt="Cave interior" 
+          className="cave-interior-texture"
+        />
         <div className="cave-interior"></div>
       </div>
 
@@ -30,9 +36,9 @@ const Scene3Choice = ({ onNext }) => {
 
           <div className="chain-visual-container">
             <div className={`chain-visual ${chainBroken ? 'broken' : ''}`}>
-              <div className="chain-link"></div>
-              <div className="chain-link"></div>
-              <div className="chain-link"></div>
+              <img src={ChainSVG} alt="Chain link" className="chain-link-svg" />
+              <img src={ChainSVG} alt="Chain link" className="chain-link-svg" />
+              <img src={ChainSVG} alt="Chain link" className="chain-link-svg" />
             </div>
           </div>
 

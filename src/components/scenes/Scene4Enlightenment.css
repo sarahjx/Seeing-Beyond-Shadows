@@ -35,68 +35,34 @@
   z-index: 1;
 }
 
-.sun {
+.sun-container {
   position: absolute;
-  top: 15%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 120px;
-  height: 120px;
-  background: #FFD700;
-  border-radius: 50%;
-  box-shadow: 0 0 40px rgba(255, 215, 0, 0.6);
-  z-index: 5;
-}
-
-.sun::before,
-.sun::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  height: 100%;
-  background: #FFD700;
-  border-radius: 50%;
-}
-
-.sun::before {
-  clip-path: polygon(0% 0%, 100% 0%, 50% 20%, 50% 80%, 100% 100%, 0% 100%);
-}
-
-.sun::after {
-  clip-path: polygon(20% 0%, 80% 0%, 100% 50%, 80% 100%, 20% 100%, 0% 50%);
-}
-
-.sun-rays {
-  position: absolute;
-  top: 15%;
+  top: 10%;
   left: 50%;
   transform: translateX(-50%);
   width: 200px;
   height: 200px;
-  z-index: 4;
+  z-index: 5;
+  animation: sunGlow 3s ease-in-out infinite;
 }
 
-.sun-ray {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 4px;
-  height: 60px;
-  background: #FFD700;
-  transform-origin: center bottom;
+.sun-svg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.8));
 }
 
-.sun-ray:nth-child(1) { transform: translate(-50%, -100%) rotate(0deg); }
-.sun-ray:nth-child(2) { transform: translate(-50%, -100%) rotate(45deg); }
-.sun-ray:nth-child(3) { transform: translate(-50%, -100%) rotate(90deg); }
-.sun-ray:nth-child(4) { transform: translate(-50%, -100%) rotate(135deg); }
-.sun-ray:nth-child(5) { transform: translate(-50%, -100%) rotate(180deg); }
-.sun-ray:nth-child(6) { transform: translate(-50%, -100%) rotate(225deg); }
-.sun-ray:nth-child(7) { transform: translate(-50%, -100%) rotate(270deg); }
-.sun-ray:nth-child(8) { transform: translate(-50%, -100%) rotate(315deg); }
+@keyframes sunGlow {
+  0%, 100% {
+    transform: translateX(-50%) scale(1);
+    filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.8));
+  }
+  50% {
+    transform: translateX(-50%) scale(1.05);
+    filter: drop-shadow(0 0 40px rgba(255, 215, 0, 1));
+  }
+}
 
 .trees {
   position: absolute;
@@ -109,30 +75,19 @@
 }
 
 .tree {
-  width: 80px;
-  height: 120px;
+  width: 100px;
+  height: 140px;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.tree-trunk {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 20px;
-  height: 60px;
-  background: #8B4513;
-}
-
-.tree-canopy {
-  position: absolute;
-  bottom: 50px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 80px;
-  background: #228B22;
-  border-radius: 50%;
+.tree-svg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
 }
 
 .scene-content {
@@ -146,17 +101,19 @@
   position: absolute;
   bottom: 25%;
   left: 10%;
-  width: 100px;
-  height: 150px;
+  width: 120px;
+  height: 180px;
   z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.freed-prisoner {
+.freed-prisoner-svg {
   width: 100%;
   height: 100%;
-  background: #432818;
-  clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 100%, 0% 100%, 0% 30%);
-  position: relative;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.5));
   animation: emerge 2s ease-out;
 }
 
@@ -186,27 +143,42 @@
   cursor: pointer;
   pointer-events: all;
   transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.light-ray:hover {
+  transform: scale(1.1);
+  filter: brightness(1.2);
+}
+
+.light-ray-svg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0.7;
 }
 
 .ray-1 {
   top: 10%;
   left: 20%;
-  width: 150px;
-  height: 300px;
+  width: 200px;
+  height: 400px;
 }
 
 .ray-2 {
   top: 5%;
   left: 50%;
-  width: 180px;
-  height: 350px;
+  width: 200px;
+  height: 400px;
 }
 
 .ray-3 {
   top: 8%;
   right: 20%;
-  width: 140px;
-  height: 320px;
+  width: 200px;
+  height: 400px;
 }
 
 .finish-button-container {

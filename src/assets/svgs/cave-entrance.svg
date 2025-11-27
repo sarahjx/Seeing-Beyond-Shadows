@@ -1,0 +1,84 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="rockGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#99582A;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#6F1D1B;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#432818;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="rockHighlight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#BB9457;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#99582A;stop-opacity:0.3" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="#432818"/>
+  
+  <!-- Left Rock Formation - Jagged, angular blocks -->
+  <g id="leftRock">
+    <!-- Base blocks -->
+    <path d="M0 600 L0 500 L80 480 L120 450 L100 400 L80 350 L100 300 L70 250 L90 200 L60 150 L80 100 L50 50 L70 0 L0 0 Z" fill="url(#rockGradient)"/>
+    <path d="M70 0 L70 50 L90 80 L110 120 L100 160 L120 200 L100 240 L130 280 L110 320 L130 360 L110 400 L130 440 L100 480 L80 500 L0 500 L0 600" fill="#6F1D1B" opacity="0.7"/>
+    
+    <!-- Highlight blocks -->
+    <path d="M20 450 L60 430 L80 400 L70 360 L90 320 L70 280 L100 250 L80 210 L110 180 L90 140 L120 110 L100 70 L130 40 L110 10 L70 0" fill="url(#rockHighlight)"/>
+    <path d="M30 380 L50 360 L70 330 L60 300 L80 270 L60 240 L90 210 L70 180 L100 150 L80 120 L110 90 L90 60 L120 30 L100 0" fill="#BB9457" opacity="0.4"/>
+  </g>
+  
+  <!-- Right Rock Formation - Jagged, angular blocks -->
+  <g id="rightRock">
+    <!-- Base blocks -->
+    <path d="M800 600 L800 500 L720 480 L680 450 L700 400 L720 350 L700 300 L730 250 L710 200 L740 150 L720 100 L750 50 L730 0 L800 0 Z" fill="url(#rockGradient)"/>
+    <path d="M730 0 L730 50 L710 80 L690 120 L700 160 L680 200 L700 240 L670 280 L690 320 L670 360 L690 400 L670 440 L700 480 L720 500 L800 500 L800 600" fill="#6F1D1B" opacity="0.7"/>
+    
+    <!-- Highlight blocks -->
+    <path d="M780 450 L740 430 L720 400 L730 360 L710 320 L730 280 L700 250 L720 210 L690 180 L710 140 L680 110 L700 70 L670 40 L690 10 L730 0" fill="url(#rockHighlight)"/>
+    <path d="M770 380 L750 360 L730 330 L740 300 L720 270 L740 240 L710 210 L730 180 L700 150 L720 120 L690 90 L710 60 L680 30 L700 0" fill="#BB9457" opacity="0.4"/>
+  </g>
+  
+  <!-- Top Stalactites - Pointed, tooth-like formations -->
+  <g id="topStalactites">
+    <!-- Large center stalactite -->
+    <path d="M380 0 L400 40 L420 60 L400 80 L380 100 L400 120 L380 140 L400 160 L380 180 L400 200 L380 220 L400 240 L380 260 L400 280 L380 300 L400 320 L380 340 L400 360 L380 380 L400 400 L380 420 L400 440 L380 460 L400 480 L380 500 L400 520 L380 540 L400 560 L380 580 L400 600" fill="#432818" opacity="0.8"/>
+    
+    <!-- Left stalactites -->
+    <path d="M200 0 L220 30 L200 50 L220 70 L200 90 L220 110 L200 130 L220 150 L200 170 L220 190 L200 210 L220 230 L200 250 L220 270 L200 290 L220 310 L200 330 L220 350 L200 370 L220 390 L200 410 L220 430 L200 450 L220 470 L200 490 L220 510 L200 530 L220 550 L200 570 L220 590 L200 600" fill="#6F1D1B" opacity="0.9"/>
+    <path d="M250 0 L270 40 L250 60 L270 80 L250 100 L270 120 L250 140 L270 160 L250 180 L270 200 L250 220 L270 240 L250 260 L270 280 L250 300 L270 320 L250 340 L270 360 L250 380 L270 400 L250 420 L270 440 L250 460 L270 480 L250 500 L270 520 L250 540 L270 560 L250 580 L270 600" fill="#432818" opacity="0.8"/>
+    <path d="M300 0 L320 50 L300 70 L320 90 L300 110 L320 130 L300 150 L320 170 L300 190 L320 210 L300 230 L320 250 L300 270 L320 290 L300 310 L320 330 L300 350 L320 370 L300 390 L320 410 L300 430 L320 450 L300 470 L320 490 L300 510 L320 530 L300 550 L320 570 L300 590 L320 600" fill="#6F1D1B" opacity="0.85"/>
+    
+    <!-- Right stalactites -->
+    <path d="M500 0 L480 30 L500 50 L480 70 L500 90 L480 110 L500 130 L480 150 L500 170 L480 190 L500 210 L480 230 L500 250 L480 270 L500 290 L480 310 L500 330 L480 350 L500 370 L480 390 L500 410 L480 430 L500 450 L480 470 L500 490 L480 510 L500 530 L480 550 L500 570 L480 590 L500 600" fill="#6F1D1B" opacity="0.9"/>
+    <path d="M550 0 L530 40 L550 60 L530 80 L550 100 L530 120 L550 140 L530 160 L550 180 L530 200 L550 220 L530 240 L550 260 L530 280 L550 300 L530 320 L550 340 L530 360 L550 380 L530 400 L550 420 L530 440 L550 460 L530 480 L550 500 L530 520 L550 540 L530 560 L550 580 L530 600" fill="#432818" opacity="0.8"/>
+    <path d="M600 0 L580 50 L600 70 L580 90 L600 110 L580 130 L600 150 L580 170 L600 190 L580 210 L600 230 L580 250 L600 270 L580 290 L600 310 L580 330 L600 350 L580 370 L600 390 L580 410 L600 430 L580 450 L600 470 L580 490 L600 510 L580 530 L600 550 L580 570 L600 590 L580 600" fill="#6F1D1B" opacity="0.85"/>
+  </g>
+  
+  <!-- Deep Black Cave Interior Void -->
+  <path d="M150 200 L650 200 L650 600 L150 600 Z" fill="#000000"/>
+  
+  <!-- Cave Floor - Dark brown with scattered rocks -->
+  <g id="caveFloor">
+    <!-- Base floor -->
+    <path d="M0 550 L150 540 L650 540 L800 550 L800 600 L0 600 Z" fill="#432818"/>
+    <path d="M0 560 L150 550 L650 550 L800 560 L800 600 L0 600 Z" fill="#6F1D1B" opacity="0.8"/>
+    
+    <!-- Scattered rock piles on left -->
+    <path d="M50 570 L70 560 L80 570 L75 580 L60 585 L50 580 Z" fill="#6F1D1B"/>
+    <path d="M30 575 L45 565 L55 575 L50 585 L35 590 L30 580 Z" fill="#432818"/>
+    <path d="M90 565 L110 555 L120 565 L115 575 L100 580 L90 570 Z" fill="#6F1D1B"/>
+    
+    <!-- Scattered rock piles on right -->
+    <path d="M720 570 L740 560 L750 570 L745 580 L730 585 L720 580 Z" fill="#6F1D1B"/>
+    <path d="M750 575 L765 565 L775 575 L770 585 L755 590 L750 580 Z" fill="#432818"/>
+    <path d="M680 565 L700 555 L710 565 L705 575 L690 580 L680 570 Z" fill="#6F1D1B"/>
+    
+    <!-- Rocks receding into darkness (center) -->
+    <path d="M350 545 L370 540 L380 545 L375 555 L360 560 L350 550 Z" fill="#432818" opacity="0.6"/>
+    <path d="M420 545 L440 540 L450 545 L445 555 L430 560 L420 550 Z" fill="#432818" opacity="0.5"/>
+    <path d="M380 550 L400 545 L410 550 L405 560 L390 565 L380 555 Z" fill="#6F1D1B" opacity="0.4"/>
+  </g>
+  
+  <!-- Subtle lighting highlights on rock edges -->
+  <path d="M70 0 L90 40 L110 80 L100 120 L120 160 L100 200 L130 240 L110 280 L130 320 L110 360 L130 400 L100 440 L80 480 L0 500" stroke="#BB9457" stroke-width="2" fill="none" opacity="0.3"/>
+  <path d="M730 0 L710 40 L690 80 L700 120 L680 160 L700 200 L670 240 L690 280 L670 320 L690 360 L670 400 L700 440 L720 480 L800 500" stroke="#BB9457" stroke-width="2" fill="none" opacity="0.3"/>
+</svg>
+

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Button from '../common/Button';
 import TextOverlay from '../common/TextOverlay';
+import CaveEntranceSVG from '../../assets/svgs/cave-entrance.svg';
 import './Scene1Intro.css';
 
 const Scene1Intro = ({ onNext }) => {
@@ -11,8 +12,11 @@ const Scene1Intro = ({ onNext }) => {
   return (
     <div className="scene scene-1">
       <div className="scene-background scene-1-background">
-        <div className="rock-formation"></div>
-        <div className="ground-strip"></div>
+        <img 
+          src={CaveEntranceSVG} 
+          alt="Cave entrance" 
+          className="cave-entrance-svg"
+        />
         <div className="cave-entrance">
           <div className="cave-opening">
             <div className="cave-text">
@@ -28,7 +32,7 @@ const Scene1Intro = ({ onNext }) => {
                 Enter the Cave
               </Button>
               <Button 
-                variant="secondary" 
+                variant="primary" 
                 onClick={() => setShowAbout(!showAbout)}
                 className="about-button"
               >

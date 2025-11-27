@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react';
 import Button from '../common/Button';
 import TextOverlay from '../common/TextOverlay';
 import Popup from '../common/Popup';
+import SunSVG from '../../assets/svgs/sun-with-rays.svg';
+import TreeSVG from '../../assets/svgs/tree.svg';
+import LightRaySVG from '../../assets/svgs/light-ray.svg';
+import FreedPrisonerSVG from '../../assets/svgs/freed-prisoner.svg';
 import './Scene4Enlightenment.css';
 
 const Scene4Enlightenment = ({ onNext }) => {
@@ -43,25 +47,18 @@ const Scene4Enlightenment = ({ onNext }) => {
       >
         <div className="nature-background"></div>
         <div className="ground"></div>
-        <div className="sun">
-          <div className="sun-rays">
-            {[...Array(8)].map((_, i) => (
-              <div key={i} className="sun-ray"></div>
-            ))}
-          </div>
+        <div className="sun-container">
+          <img src={SunSVG} alt="Sun" className="sun-svg" />
         </div>
         <div className="trees">
           <div className="tree">
-            <div className="tree-trunk"></div>
-            <div className="tree-canopy"></div>
+            <img src={TreeSVG} alt="Tree" className="tree-svg" />
           </div>
           <div className="tree">
-            <div className="tree-trunk"></div>
-            <div className="tree-canopy"></div>
+            <img src={TreeSVG} alt="Tree" className="tree-svg" />
           </div>
           <div className="tree">
-            <div className="tree-trunk"></div>
-            <div className="tree-canopy"></div>
+            <img src={TreeSVG} alt="Tree" className="tree-svg" />
           </div>
         </div>
         <div className="light-rays">
@@ -69,23 +66,29 @@ const Scene4Enlightenment = ({ onNext }) => {
             className="light-ray ray-1"
             onClick={handleLightRayClick}
             title="Click to learn about light"
-          ></div>
+          >
+            <img src={LightRaySVG} alt="Light ray" className="light-ray-svg" />
+          </div>
           <div 
             className="light-ray ray-2"
             onClick={handleLightRayClick}
             title="Click to learn about light"
-          ></div>
+          >
+            <img src={LightRaySVG} alt="Light ray" className="light-ray-svg" />
+          </div>
           <div 
             className="light-ray ray-3"
             onClick={handleLightRayClick}
             title="Click to learn about light"
-          ></div>
+          >
+            <img src={LightRaySVG} alt="Light ray" className="light-ray-svg" />
+          </div>
         </div>
       </div>
 
       <div className="scene-content">
         <div className="enlightenment-visual">
-          <div className="freed-prisoner"></div>
+          <img src={FreedPrisonerSVG} alt="Freed prisoner" className="freed-prisoner-svg" />
         </div>
       </div>
 

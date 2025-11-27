@@ -2,6 +2,11 @@ import React, { useState } from 'react';
 import Button from '../common/Button';
 import TextOverlay from '../common/TextOverlay';
 import Popup from '../common/Popup';
+import PrisonerSVG from '../../assets/svgs/prisoner-silhouette.svg';
+import ShadowSVG from '../../assets/svgs/shadow-figure.svg';
+import ChainSVG from '../../assets/svgs/chain-link.svg';
+import FireSVG from '../../assets/svgs/fire-flame.svg';
+import CaveWallSVG from '../../assets/svgs/cave-wall-texture.svg';
 import './Scene2Prisoners.css';
 
 const Scene2Prisoners = ({ onNext }) => {
@@ -33,9 +38,18 @@ const Scene2Prisoners = ({ onNext }) => {
   return (
     <div className="scene scene-2">
       <div className="scene-background scene-2-background">
-        {/* Placeholder for cave wall background */}
-        <div className="cave-wall"></div>
-        <div className="firelight"></div>
+        <img 
+          src={CaveWallSVG} 
+          alt="Cave wall" 
+          className="cave-wall-texture"
+        />
+        <div className="fire-container">
+          <img 
+            src={FireSVG} 
+            alt="Fire" 
+            className="fire-flame"
+          />
+        </div>
       </div>
 
       <div className="scene-content">
@@ -44,35 +58,51 @@ const Scene2Prisoners = ({ onNext }) => {
           className="shadow-area shadow-1"
           onClick={handleShadowClick}
           title="Click to learn about shadows"
-        ></div>
+        >
+          <img src={ShadowSVG} alt="Shadow" className="shadow-svg" />
+        </div>
         <div 
           className="shadow-area shadow-2"
           onClick={handleShadowClick}
           title="Click to learn about shadows"
-        ></div>
+        >
+          <img src={ShadowSVG} alt="Shadow" className="shadow-svg" />
+        </div>
         <div 
           className="shadow-area shadow-3"
           onClick={handleShadowClick}
           title="Click to learn about shadows"
-        ></div>
+        >
+          <img src={ShadowSVG} alt="Shadow" className="shadow-svg" />
+        </div>
 
         {/* Clickable chains */}
         <div 
           className="chain chain-1"
           onClick={handleChainClick}
           title="Click to learn about chains"
-        ></div>
+        >
+          <img src={ChainSVG} alt="Chain" className="chain-svg" />
+        </div>
         <div 
           className="chain chain-2"
           onClick={handleChainClick}
           title="Click to learn about chains"
-        ></div>
+        >
+          <img src={ChainSVG} alt="Chain" className="chain-svg" />
+        </div>
 
-        {/* Prisoners (placeholder) */}
+        {/* Prisoners */}
         <div className="prisoners">
-          <div className="prisoner prisoner-1"></div>
-          <div className="prisoner prisoner-2"></div>
-          <div className="prisoner prisoner-3"></div>
+          <div className="prisoner prisoner-1">
+            <img src={PrisonerSVG} alt="Prisoner" className="prisoner-svg" />
+          </div>
+          <div className="prisoner prisoner-2">
+            <img src={PrisonerSVG} alt="Prisoner" className="prisoner-svg" />
+          </div>
+          <div className="prisoner prisoner-3">
+            <img src={PrisonerSVG} alt="Prisoner" className="prisoner-svg" />
+          </div>
         </div>
       </div>
 
