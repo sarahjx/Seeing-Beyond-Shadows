@@ -11,83 +11,84 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, #87CEEB 0%, #B0E0E6 50%, #98D8C8 100%);
   z-index: 0;
   transition: filter 0.1s ease;
 }
 
-.nature-background {
+.enlightenment-scene-image {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, #87CEEB 0%, #B0E0E6 50%, #98D8C8 100%);
-}
-
-.ground {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 25%;
-  background: #228B22;
+  max-width: 100vw;
+  max-height: 100vh;
+  object-fit: contain;
+  object-position: center center;
   z-index: 1;
 }
 
-.sun-container {
+.light-area {
   position: absolute;
-  top: 10%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 200px;
-  height: 200px;
-  z-index: 5;
-  animation: sunGlow 3s ease-in-out infinite;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: transparent;
+  border-radius: 50%;
+  animation: lightGlow 3s ease-in-out infinite;
 }
 
-.sun-svg {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.8));
+.light-area:hover {
+  background: rgba(255, 215, 0, 0.2);
+  transform: scale(1.1);
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
 }
 
-@keyframes sunGlow {
+.light-area.clicked {
+  background: rgba(255, 215, 0, 0.3);
+  animation: lightFlash 0.6s ease-out;
+}
+
+@keyframes lightGlow {
   0%, 100% {
-    transform: translateX(-50%) scale(1);
-    filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.8));
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+    opacity: 0.8;
   }
   50% {
-    transform: translateX(-50%) scale(1.05);
-    filter: drop-shadow(0 0 40px rgba(255, 215, 0, 1));
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
+    opacity: 1;
   }
 }
 
-.trees {
-  position: absolute;
-  bottom: 25%;
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-end;
-  z-index: 3;
+@keyframes lightFlash {
+  0% {
+    background: rgba(255, 215, 0, 0.5);
+    transform: scale(1.2);
+  }
+  100% {
+    background: rgba(255, 215, 0, 0.3);
+    transform: scale(1);
+  }
 }
 
-.tree {
-  width: 100px;
-  height: 140px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.light-1 {
+  top: 15%;
+  left: 20%;
+  width: 15%;
+  height: 25%;
 }
 
-.tree-svg {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+.light-2 {
+  top: 10%;
+  left: 50%;
+  width: 18%;
+  height: 30%;
+}
+
+.light-3 {
+  top: 12%;
+  right: 20%;
+  width: 15%;
+  height: 25%;
 }
 
 .scene-content {
@@ -97,25 +98,7 @@
   height: 100%;
 }
 
-.enlightenment-visual {
-  position: absolute;
-  bottom: 25%;
-  left: 10%;
-  width: 120px;
-  height: 180px;
-  z-index: 4;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.freed-prisoner-svg {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.5));
-  animation: emerge 2s ease-out;
-}
+/* Person is now part of the scene image */
 
 @keyframes emerge {
   from {
@@ -128,58 +111,7 @@
   }
 }
 
-.light-rays {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 2;
-}
-
-.light-ray {
-  position: absolute;
-  cursor: pointer;
-  pointer-events: all;
-  transition: all 0.3s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.light-ray:hover {
-  transform: scale(1.1);
-  filter: brightness(1.2);
-}
-
-.light-ray-svg {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  opacity: 0.7;
-}
-
-.ray-1 {
-  top: 10%;
-  left: 20%;
-  width: 200px;
-  height: 400px;
-}
-
-.ray-2 {
-  top: 5%;
-  left: 50%;
-  width: 200px;
-  height: 400px;
-}
-
-.ray-3 {
-  top: 8%;
-  right: 20%;
-  width: 200px;
-  height: 400px;
-}
+/* Light rays removed - using sun image instead */
 
 .finish-button-container {
   position: fixed;

@@ -1,18 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
 import Button from '../common/Button';
 import TextOverlay from '../common/TextOverlay';
 import Popup from '../common/Popup';
-import PrisonerSVG from '../../assets/svgs/prisoner-silhouette.svg';
-import ShadowSVG from '../../assets/svgs/shadow-figure.svg';
-import ChainSVG from '../../assets/svgs/chain-link.svg';
-import FireSVG from '../../assets/svgs/fire-flame.svg';
-import CaveWallSVG from '../../assets/svgs/cave-wall-texture.svg';
+import ExclamationIcon from '../common/ExclamationIcon';
+import PrisonersScene from '../../assets/prisonersscene.png';
+import Chains from '../../assets/chains.png';
+import ShadowLeft from '../../assets/shadowleft.png';
+import ShadowMiddle from '../../assets/shadowmiddle.png';
+import ShadowRight from '../../assets/shadowright.png';
 import './Scene2Prisoners.css';
 
 const Scene2Prisoners = ({ onNext }) => {
   const [showNarration, setShowNarration] = useState(false);
   const [popup, setPopup] = useState(null);
-  const [chainClicked, setChainClicked] = useState(false);
+  const [breakFreeVisible, setBreakFreeVisible] = useState(false);
+  const [clickedChains, setClickedChains] = useState(new Set());
+  const sceneRef = useRef(null);
+  const breakFreeRef = useRef(null);
+  const popupRef = useRef(null);
 
   const narrationText = "In this dark cave, prisoners have been chained since birth, facing a wall. Behind them, a fire casts shadows of objects onto the wall. These shadows are all they have ever known—their only reality.";
 
@@ -20,102 +26,133 @@ const Scene2Prisoners = ({ onNext }) => {
   
   const chainText = "The chains symbolize the mental and societal constraints that keep us from questioning our beliefs and seeking true knowledge.";
 
+  useEffect(() => {
+    // Remove animation temporarily to ensure visibility
+    // if (sceneRef.current) {
+    //   gsap.set(sceneRef.current, { opacity: 1 });
+    // }
+  }, []);
+
+  useEffect(() => {
+    if (breakFreeVisible && breakFreeRef.current) {
+      gsap.from(breakFreeRef.current, {
+        scale: 0,
+        rotation: -180,
+        opacity: 0,
+        duration: 0.8,
+        ease: "back.out(1.7)"
+      });
+    }
+  }, [breakFreeVisible]);
+
+  useEffect(() => {
+    if (popup && popupRef.current) {
+      gsap.from(popupRef.current, {
+        scale: 0,
+        opacity: 0,
+        duration: 0.5,
+        ease: "back.out(1.7)"
+      });
+    }
+  }, [popup]);
+
   const handleShadowClick = (e) => {
+    e.stopPropagation();
     setPopup({
       text: shadowText,
       position: { x: e.clientX, y: e.clientY }
     });
   };
 
-  const handleChainClick = (e) => {
-    setChainClicked(true);
+  const handleChainClick = (chainId, e) => {
+    e.stopPropagation();
+    setClickedChains(prev => new Set([...prev, chainId]));
+    
+    // Show popup for chain meaning
     setPopup({
       text: chainText,
       position: { x: e.clientX, y: e.clientY }
     });
+    
+    // If this is the special chain (chain-1), show break free button
+    if (chainId === 'chain-1') {
+      setTimeout(() => {
+        setBreakFreeVisible(true);
+      }, 500);
+    }
   };
 
   return (
-    <div className="scene scene-2">
+    <div className="scene scene-2" ref={sceneRef}>
       <div className="scene-background scene-2-background">
         <img 
-          src={CaveWallSVG} 
-          alt="Cave wall" 
-          className="cave-wall-texture"
+          src={PrisonersScene} 
+          alt="Prisoners scene" 
+          className="prisoners-scene-image"
         />
-        <div className="fire-container">
-          <img 
-            src={FireSVG} 
-            alt="Fire" 
-            className="fire-flame"
-          />
-        </div>
       </div>
 
       <div className="scene-content">
-        {/* Clickable shadows on the wall */}
-        <div 
-          className="shadow-area shadow-1"
+        {/* Invisible clickable shadow overlays - exact dimensions of shadow images */}
+        <img 
+          src={ShadowLeft} 
+          alt="Shadow left" 
+          className={`shadow-overlay shadow-overlay-1 ${popup?.text === shadowText ? 'clicked' : ''}`}
           onClick={handleShadowClick}
           title="Click to learn about shadows"
-        >
-          <img src={ShadowSVG} alt="Shadow" className="shadow-svg" />
-        </div>
-        <div 
-          className="shadow-area shadow-2"
+        />
+        <img 
+          src={ShadowMiddle} 
+          alt="Shadow middle" 
+          className={`shadow-overlay shadow-overlay-2 ${popup?.text === shadowText ? 'clicked' : ''}`}
           onClick={handleShadowClick}
           title="Click to learn about shadows"
-        >
-          <img src={ShadowSVG} alt="Shadow" className="shadow-svg" />
-        </div>
-        <div 
-          className="shadow-area shadow-3"
+        />
+        <img 
+          src={ShadowRight} 
+          alt="Shadow right" 
+          className={`shadow-overlay shadow-overlay-3 ${popup?.text === shadowText ? 'clicked' : ''}`}
           onClick={handleShadowClick}
           title="Click to learn about shadows"
-        >
-          <img src={ShadowSVG} alt="Shadow" className="shadow-svg" />
-        </div>
+        />
 
-        {/* Clickable chains */}
-        <div 
-          className="chain chain-1"
-          onClick={handleChainClick}
+        {/* Invisible clickable chain overlay - exact dimensions of chains image */}
+        <img 
+          src={Chains} 
+          alt="Chains" 
+          className={`chain-overlay chain-overlay-1 ${clickedChains.has('chain-1') ? 'clicked' : ''}`}
+          onClick={(e) => handleChainClick('chain-1', e)}
           title="Click to learn about chains"
-        >
-          <img src={ChainSVG} alt="Chain" className="chain-svg" />
-        </div>
-        <div 
-          className="chain chain-2"
-          onClick={handleChainClick}
+        />
+        <img 
+          src={Chains} 
+          alt="Chains" 
+          className={`chain-overlay chain-overlay-2 ${clickedChains.has('chain-2') ? 'clicked' : ''}`}
+          onClick={(e) => handleChainClick('chain-2', e)}
           title="Click to learn about chains"
-        >
-          <img src={ChainSVG} alt="Chain" className="chain-svg" />
-        </div>
-
-        {/* Prisoners */}
-        <div className="prisoners">
-          <div className="prisoner prisoner-1">
-            <img src={PrisonerSVG} alt="Prisoner" className="prisoner-svg" />
-          </div>
-          <div className="prisoner prisoner-2">
-            <img src={PrisonerSVG} alt="Prisoner" className="prisoner-svg" />
-          </div>
-          <div className="prisoner prisoner-3">
-            <img src={PrisonerSVG} alt="Prisoner" className="prisoner-svg" />
-          </div>
-        </div>
+        />
       </div>
 
-      <TextOverlay
-        title="The Prisoners"
-        text={narrationText}
-        isOpen={showNarration}
-        onToggle={() => setShowNarration(!showNarration)}
-        position="top-right"
+      {/* Exclamation icon in top left */}
+      <ExclamationIcon 
+        onClick={() => setShowNarration(!showNarration)}
+        isActive={showNarration}
       />
 
-      {chainClicked && (
-        <div className="break-free-container">
+      {/* Narration overlay */}
+      {showNarration && (
+        <TextOverlay
+          title="The Prisoners"
+          text={narrationText}
+          isOpen={showNarration}
+          onToggle={() => setShowNarration(false)}
+          position="center"
+        />
+      )}
+
+      {/* Break Free button appears in center when chain-1 is clicked */}
+      {breakFreeVisible && (
+        <div className="break-free-container" ref={breakFreeRef}>
           <Button 
             variant="primary" 
             onClick={onNext}
@@ -131,6 +168,7 @@ const Scene2Prisoners = ({ onNext }) => {
           text={popup.text}
           onClose={() => setPopup(null)}
           position={popup.position}
+          popupRef={popupRef}
         />
       )}
 

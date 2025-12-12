@@ -3,6 +3,7 @@
   width: 100%;
   height: 100vh;
   overflow: hidden;
+  opacity: 1 !important;
 }
 
 .scene-1-background {
@@ -18,13 +19,14 @@
   justify-content: center;
 }
 
-.cave-entrance-svg {
+.intro-image {
   position: absolute;
-  top: 0;
+  top: -5%;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 110%;
   object-fit: cover;
+  object-position: center top;
   z-index: 1;
 }
 
@@ -56,6 +58,7 @@
   text-align: center;
   color: #FFE6A7;
   width: 100%;
+  opacity: 1;
 }
 
 .main-title {
@@ -82,6 +85,10 @@
   width: 100%;
   max-width: 300px;
   align-items: center;
+}
+
+.cave-buttons > * {
+  opacity: 1;
 }
 
 @media (max-width: 768px) {

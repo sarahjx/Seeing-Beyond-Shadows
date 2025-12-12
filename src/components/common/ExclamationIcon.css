@@ -1,0 +1,56 @@
+.exclamation-icon {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 55px;
+  height: 55px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1000;
+  padding: 5px;
+  transition: all 0.3s ease;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.exclamation-icon:hover {
+  transform: scale(1.15);
+}
+
+.exclamation-icon.active {
+  animation: none;
+}
+
+.exclamation-icon svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.exclamation-icon .icon-circle {
+  transition: fill 0.3s ease;
+}
+
+.exclamation-icon:hover .icon-circle {
+  fill: #8B2A28;
+}
+
+.exclamation-icon.active .icon-circle {
+  fill: #8B2A28;
+}
+
+.exclamation-icon .icon-mark {
+  transition: stroke 0.3s ease;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+}
+
