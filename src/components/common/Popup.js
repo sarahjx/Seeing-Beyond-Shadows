@@ -20,3 +20,4 @@ const Popup = ({ text, onClose, position }) => {
 
 export default Popup;
 
+
